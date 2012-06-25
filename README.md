@@ -42,7 +42,7 @@ Here is an example header file.
     
     #endif // DRAWABLE_HPP_YC42FMI
 
-(For comparison and reference, see the [demo][parent-cppnow-code] by Sean Parent from [C++Now!][cppnow] 2012.)
+(For comparison and reference, see the [presentation video][parent-cppnow-video] by Sean Parent from [C++Now!][cppnow] 2012, with source code [here][parent-cppnow-code].)
 
 This is how the header might be used. The types `int`, `std::vector<int>`, `std::string`, `my::klass`, and even `std::vector<example::drawable>` almost magically convert to `example::drawable`:
 
@@ -142,7 +142,7 @@ Yes.
 - **Types can be perfectly oblivious** about the interfaces they need to implement. (This is a Big Deal. See the talk about the _expression problem_ below.)
 - There are **no raw pointers** you need to mess around with. It is perfectly clear, who owns the object and when it is destroyed.
 - There is **no shared state**. Objects of type `poly::interface<...>` act as values, which is known to be a nice property in multithreaded applications.
-- There's a backdoor too: If you can handle the type `T` wrapped in a `poly::interface<...> x`, you can **`poly::cast<T>(x)`** back to it. You can even _move_ the value out: `poly::cast<T>(std::move(x))`. (Introspect the wrapped value by asking `x.type()`. It returns `std::type_info const &` like `typeid(...)`.)
+- There's a backdoor too: If you can handle the type `T` wrapped in a `poly::interface<...> x`, you can **cast back to it** using `poly::cast<T>(x)`. You can even _move_ the value out: `poly::cast<T>(std::move(x))`. (Introspect the wrapped value by asking `x.type()`. It returns `std::type_info const &` like `typeid(...)`.)
 
 
 How to compile the examples?
@@ -484,7 +484,7 @@ Shortcomings and Further Development
 Thanks
 ------
 
-- Sean Parent, for an enlightening talk about value semantics and concepts-based polymorphism in the C++Now! 2012 conference, and for the inspiration for this proof-of-concept library. See his [slides and example code][parent-cppnow] in GitHub.
+- Sean Parent, for an [enlightening talk][parent-cppnow-video] about value semantics and concepts-based polymorphism in the C++Now! 2012 conference, and for the inspiration for this proof-of-concept library. See his [slides and example code][parent-cppnow] in GitHub.
 - Johanness "litb" Schaub, for teaching me [how ADL works][litb-adl], and Joel Falcou et al., for showing how to further [trick the ADL system][nt2-adl].
 - Dave Abrahams, for the combined `RETURNS(...)` / `noexcept(noexcept(...))` [trick][abrahams-meta] as well as some other metaprogramming tricks used.
 - Steven Watanabe, for the idea of emulating [`boost::any`][boost-any], and very likely several other ideas used in this library, like operator overloading or the use of `self` as a placeholder type, all inherited from his proposed [Boost.TypeErasure][watanabe-type-erasure] library (see [docs][watanabe-docs]). Here's me hoping we can somehow unite our efforts, and bring type erasure and non-intrusive interfaces to the mainstream of C++ programming.
@@ -514,8 +514,6 @@ Blog: <http://pyrtsa.posterous.com>
 I write software at [Futurice][futurice].  
 Have you [heard][gptw-2012] about us already?
 
---------------------------------------------------------------------------------
-
 
 [abrahams-meta]: http://thread.gmane.org/gmane.comp.lib.boost.devel/229563/focus=229649
 [adl]: http://en.wikipedia.org/wiki/Argument-dependent_name_lookup
@@ -532,6 +530,7 @@ Have you [heard][gptw-2012] about us already?
 [litb-adl]: http://stackoverflow.com/a/5707849
 [nt2-adl]: https://github.com/MetaScale/nt2/commit/f41d74fb93791b63f0ad09529fe4d69b1c46421d
 [parent-cppnow-code]: https://github.com/boostcon/cppnow_presentations_2012/blob/master/fri/value_semantics/value_semantics.cpp
+[parent-cppnow-video]: http://www.youtube.com/watch?v=_BpMYeUFXv8
 [parent-cppnow]: https://github.com/boostcon/cppnow_presentations_2012/tree/master/fri/value_semantics
 [protocol]: http://clojure.org/protocols
 [typeclass]: http://www.haskell.org/tutorial/classes.html
