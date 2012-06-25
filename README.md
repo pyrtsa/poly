@@ -138,7 +138,8 @@ Is it any good?
 
 Yes.
 
-- `poly::interface` is **move-aware** — you can cheaply move values of different (move-aware) types into the interface.
+- `poly::interface` is **move-aware** — you can cheaply move values of different (move-aware) types into the interface. Likewise, you can cheaply return a moved `poly::interface` from a function (even if the wrapped type wasn't move-aware).
+- _Callables_ are generic functions objects but as such also first class objects — you can freely pass and return them to and from higher-order functions, supporting polymorphic functional programming.
 - **Types can be perfectly oblivious** about the interfaces they need to implement. (This is a Big Deal. See the talk about the _expression problem_ below.)
 - There are **no raw pointers** you need to mess around with. It is perfectly clear, who owns the object and when it is destroyed.
 - There is **no shared state**. Objects of type `poly::interface<...>` act as values, which is known to be a nice property in multithreaded applications.
