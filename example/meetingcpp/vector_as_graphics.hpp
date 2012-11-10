@@ -13,27 +13,18 @@ namespace graphics {
 
     template< typename Graphics
             , typename Enable =
-                decltype(call(draw_fn{}, std::declval<std::ostream &>(),
-                                         std::declval<Graphics const &>(),
-                                         std::declval<std::size_t>()))
+                decltype(call(draw_fn{}, std::declval<context &>(),
+                                         std::declval<Graphics const &>()))
             >
-    void call(draw_fn, std::ostream & out,
-                       std::vector<Graphics> const & v,
-                       std::size_t indent)
-    {
+    void call(draw_fn, context & g, std::vector<Graphics> const & v) {
         auto i = begin(v), e = end(v);
-        auto const spaces = std::string(indent, ' ');
 
-        out << spaces << "[";
+        g << "[";
 
-        if (i != e) {
-            draw_fn{}(out << '\n', *i++, indent + 4);
-            while (i != e)
-                draw_fn{}(out << ",\n", *i++, indent + 4);
-            out << '\n' << spaces;
-        }
+        if    (i != e) draw_fn{}(g,         *i++);
+        while (i != e) draw_fn{}(g << ",   ", *i++);
 
-        out << ']';
+        g << ']';
     }
 
 } // graphics

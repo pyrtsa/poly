@@ -13,6 +13,7 @@
 
 namespace graphics {
 
+using context = std::ostream;
 using size_type = std::array<double, 2>;
 using point_type = std::array<double, 2>;
 
@@ -27,7 +28,7 @@ constexpr struct size_fn : poly::callable<size_fn> {} size = {};
 constexpr struct center_fn : poly::callable<center_fn> {} center {};
 
 /// Usage:
-///     draw(std::ostream & out, T const & self, std::size_t indent) -> void
+///     draw(context & g, T const & self) -> void
 constexpr struct draw_fn : poly::callable<draw_fn> {} draw = {};
 
 } // graphics

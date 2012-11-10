@@ -7,6 +7,7 @@
 #define BOX_HPP
 
 #include <string>
+#include <sstream>
 
 namespace theirs {
 
@@ -16,11 +17,13 @@ namespace theirs {
         box(double l, double t, double r, double b)
             : left(l), top(t), right(r), bottom(b) {}
 
-        std::string to_json() const { // in no way optimal...
-            return "[[" + std::to_string(left) + ", "
-                        + std::to_string(top) + "], ["
-                        + std::to_string(right) + ", "
-                        + std::to_string(bottom) + "]]";
+        std::string to_json() const {
+            std::ostringstream os;
+            os << "{ \"p0\": [" << left   << ", "
+                                << top    << "], "
+                 << "\"p1\": [" << right  << ", "
+                                << bottom << "] }";
+            return os.str();
         }
     };
 

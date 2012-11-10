@@ -32,12 +32,11 @@ namespace graphics { // <- app::circle
         c.y = value[1];
     }
 
-    void call(draw_fn, std::ostream & out,
-                       app::circle const & c,
-                       std::size_t indent)
-    {
-        out << std::string(indent, ' ')
-            << "[\"circle\", " << c.x << ", " << c.y << ", " << c.r << "]";
+    void call(draw_fn, context & g, app::circle const & c) {
+        g << "{ \"x\": " << c.x
+          << ", \"y\": " << c.y
+          << ", \"r\": " << c.r
+          << " }";
     }
 
 } // graphics <- app::circle
