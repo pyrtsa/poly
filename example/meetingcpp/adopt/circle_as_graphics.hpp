@@ -3,11 +3,11 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef CIRCLE_AS_GRAPHICS_HPP
-#define CIRCLE_AS_GRAPHICS_HPP
+#ifndef ADOPT_CIRCLE_AS_GRAPHICS_HPP
+#define ADOPT_CIRCLE_AS_GRAPHICS_HPP
 
-#include "circle.hpp"
-#include "graphics.hpp"
+#include "app/circle.hpp"
+#include "graphics/graphics.hpp"
 
 namespace graphics { // <- app::circle
 
@@ -41,4 +41,4 @@ namespace graphics { // <- app::circle
 
 } // graphics <- app::circle
 
-#endif // CIRCLE_AS_GRAPHICS_HPP
+#endif // ADOPT_CIRCLE_AS_GRAPHICS_HPP

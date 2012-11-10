@@ -3,8 +3,8 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef APP_CIRCLE_HPP
+#define APP_CIRCLE_HPP
 
 namespace app {
 
@@ -12,4 +12,4 @@ namespace app {
 
 } // app
 
-#endif // CIRCLE_HPP
+#endif // APP_CIRCLE_HPP

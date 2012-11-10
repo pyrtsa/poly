@@ -3,11 +3,11 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef VECTOR_AS_GRAPHICS_HPP
-#define VECTOR_AS_GRAPHICS_HPP
+#ifndef ADOPT_VECTOR_AS_GRAPHICS_HPP
+#define ADOPT_VECTOR_AS_GRAPHICS_HPP
 
 #include <vector>
-#include "graphics.hpp"
+#include "graphics/graphics.hpp"
 
 namespace graphics {
 
@@ -29,4 +29,4 @@ namespace graphics {
 
 } // graphics
 
-#endif // VECTOR_AS_GRAPHICS_HPP
+#endif // ADOPT_VECTOR_AS_GRAPHICS_HPP
